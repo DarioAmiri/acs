@@ -78,14 +78,15 @@ public class Parent {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(this.identifier).toHashCode();
+        return new HashCodeBuilder().append(this.identifier).append(this.scopes).toHashCode();
     }
 
     @Override
     public boolean equals(final Object obj) {
         if (obj instanceof Parent) {
             final Parent other = (Parent) obj;
-            return new EqualsBuilder().append(this.identifier, other.identifier).isEquals();
+            return new EqualsBuilder().append(this.identifier, other.identifier).append(this.scopes, other.scopes)
+            		.isEquals();
         }
         return false;
     }
